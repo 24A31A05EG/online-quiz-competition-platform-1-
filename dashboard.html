@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QuizNova - Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<nav class="topbar">
+    <div class="brand">QuizNova</div>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+</nav>
+
+<div class="wrapper">
+
+    <div class="main-card">
+
+        <div class="icon-circle">🧠</div>
+
+        <h1>Welcome to QuizNova</h1>
+        <p class="subtitle">
+            Test your knowledge with interactive quizzes and compete on the leaderboard.
+        </p>
+
+        <!-- QUIZ + LEADERBOARD ROW -->
+        <div class="grid-two">
+
+            <!-- Quiz Options -->
+            <div class="box">
+                <h3>Quiz Options</h3>
+
+                <!-- SAME OLD STYLE -->
+                <div class="quiz-option blue" onclick="goTo('standard.html')">
+                    Standard Quiz
+                    <span>›</span>
+                </div>
+
+                <div class="quiz-option green" onclick="goTo('custom.html')">
+                    Custom Quiz
+                    <span>›</span>
+                </div>
+
+                <div class="quiz-option purple" onclick="goTo('daily.html')">
+                    Daily Question
+                    <span>›</span>
+                </div>
+
+            </div>
+
+            <!-- Leaderboard -->
+            <div class="box">
+                <h3>Leaderboard</h3>
+
+                <div class="leader-row">Kavya <span>15 pts</span></div>
+                <div class="leader-row">Rahul <span>12 pts</span></div>
+                <div class="leader-row">Sneha <span>9 pts</span></div>
+                <div class="leader-row">Arjun <span>6 pts</span></div>
+                <div class="leader-row">Priya <span>4 pts</span></div>
+
+                <div style="text-align:right; margin-top:10px;">
+                    <a href="#" onclick="goTo('leaderboard.html')" 
+                       style="color:#4e73df; font-size:14px;">
+                       View Full Leaderboard →
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BOTTOM FEATURES (OLD STYLE SAME) -->
+        <div class="grid-three">
+
+            <div class="feature">
+                <div class="feature-icon blue-bg">📚</div>
+                <h4>Diverse Questions</h4>
+                <p>Practice from multiple categories.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon green-bg">📈</div>
+                <h4>Track Progress</h4>
+                <p>Monitor your performance easily.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon purple-bg">🤖</div>
+                <h4>AI Recommendations</h4>
+                <p>Get smart quiz suggestions.</p>
+            </div>
+
+        </div>
+
+        <!-- CTA SAME STYLE -->
+        <div class="cta">
+            <h3>Ready to Test Your Knowledge?</h3>
+            <button class="cta-btn" onclick="goTo('standard.html')">
+                Start Quiz Now
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+let user = localStorage.getItem("loggedInUser") || 
+           sessionStorage.getItem("loggedInUser");
+
+if (!user) {
+    window.location.href = "login.html";
+}
+
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    sessionStorage.removeItem("loggedInUser");
+    window.location.href = "login.html";
+}
+
+function goTo(page){
+    window.location.href = page;
+}
+</script>
+<footer class="footer">
+    <div class="footer-left">
+        <h3>QuizNova</h3>
+        <p>
+            Challenge yourself with exciting quizzes and track 
+            your performance in real time.
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

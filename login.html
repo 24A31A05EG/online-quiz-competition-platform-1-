@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - QuizNova</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ✅ Popup Added -->
+<div id="popup-message" class="popup"></div>
+
+<nav class="navbar">
+    <h2 class="logo">QuizNova</h2>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="login.html">Login</a>
+        <a href="register.html" class="register-btn">Register</a>
+    </div>
+</nav>
+
+<div class="background-box">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>Welcome Back</h2>
+                <p>Sign in to continue your learning journey</p>
+            </div>
+
+            <!-- ✅ Form ID Added -->
+            <form id="loginForm">
+
+                <label>Username/Email</label>
+                <!-- ✅ ID Added -->
+                <input type="text" id="username" placeholder="Enter your username/email" required>
+
+                <label>Password</label>
+                <!-- ✅ ID Added -->
+                <input type="password" id="password" placeholder="Enter your password" required>
+
+                <div class="auth-options">
+                    <!-- ✅ ID Added -->
+                    <label><input type="checkbox" id="remember"> Remember me</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="auth-btn">Sign In</button>
+
+                <p class="switch-text">
+                    Don't have an account? <a href="register.html">Sign up now</a>
+                </p>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-left">
+        <h3>QuizNova</h3>
+        <p>Challenge yourself with exciting quizzes and track your performance in real time.</p>
+    </div>
+</footer>
+
+<script src="js/login.js"></script>
+</body>
+</html>

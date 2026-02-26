@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - QuizNova</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ✅ Popup Added -->
+<div id="popup-message" class="popup"></div>
+
+<nav class="navbar">
+    <h2 class="logo">QuizNova</h2>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="login.html">Login</a>
+        <a href="register.html" class="register-btn">Register</a>
+    </div>
+</nav>
+
+<div class="background-box">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>Join QuizNova</h2>
+                <p>Start your learning journey today</p>
+            </div>
+
+            <!-- ✅ Form ID Added -->
+            <form id="registerForm">
+
+                <label>Username</label>
+                <!-- ✅ ID Added -->
+                <input type="text" id="username" placeholder="Choose a username" required>
+
+                <label>Email Address</label>
+                <!-- ✅ ID Added -->
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label>Password</label>
+                <!-- ✅ ID Added -->
+                <input type="password" id="password" placeholder="Create a password" required>
+
+                <label>Confirm Password</label>
+                <!-- ✅ ID Added -->
+                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+
+                <!-- ✅ ID Added -->
+                <label class="terms">
+                    <input type="checkbox" id="terms" required>
+                    I agree to the Terms and Conditions
+                </label>
+
+                <button type="submit" class="auth-btn">Create Account</button>
+
+                <p class="switch-text">
+                    Already have an account? <a href="login.html">Sign in here</a>
+                </p>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-left">
+        <h3>QuizNova</h3>
+        <p>Challenge yourself with exciting quizzes and track your performance in real time.</p>
+    </div>
+</footer>
+
+<script src="js/register.js"></script>
+</body>
+</html>
