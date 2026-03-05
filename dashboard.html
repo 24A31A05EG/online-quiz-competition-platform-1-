@@ -38,24 +38,24 @@
 
         <!-- QUIZ OPTIONS -->
         <div class="card">
-            <h2>Quiz Options</h2>
+            <h2> ▶ Quiz Options</h2>
 
             <div class="quiz-btn blue" onclick="goTo('standard.html')">
-                Standard Quiz
+                ▶ Standard Quiz
             </div>
 
             <div class="quiz-btn green" onclick="goTo('custom.html')">
-                Custom Quiz
+                ⚙ Custom Quiz
             </div>
 
             <div class="quiz-btn purple" onclick="goTo('daily.html')">
-                Daily Challenge
+                📅 Daily Challenge
             </div>
         </div>
 
         <!-- LEADERBOARD -->
         <div class="card">
-            <h2>Leaderboard</h2>
+            <h2>🏆Leaderboard</h2>
             <div id="leaderboardList"></div>
             <a href="leaderboard.html" class="view-link">
                 View Full Leaderboard →
@@ -77,6 +77,15 @@ if (!user) {
 }
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
+
+let uniqueUsers = [];
+
+users.forEach(u => {
+    if(!uniqueUsers.some(x => x.email === u.email)){
+        uniqueUsers.push(u);
+    }
+});
+
 const index = users.findIndex(u => u.email === user.email);
 
 /* WELCOME */
@@ -98,12 +107,14 @@ let sortedUsers = [...users].sort((a,b) =>
 let html = "";
 
 sortedUsers.slice(0,5).forEach((u, i) => {
-    html += `
-        <div class="leader-row">
-            <span>#${i+1} ${u.username}</span>
-            <span>${u.score || 0} pts</span>
-        </div>
-    `;
+
+html += `
+<div class="leader-row">
+<span>#${i+1} ${u.username}</span>
+<span>⭐ ${u.score || 0} pts</span>
+</div>
+`;
+
 });
 
 document.getElementById("leaderboardList").innerHTML = html;
@@ -120,6 +131,23 @@ function goTo(page){
 }
 
 </script>
+<script>
+
+function takeQuiz(){
+
+let lastQuiz = localStorage.getItem("lastQuiz");
+
+if(lastQuiz === "custom"){
+window.location.href = "custom.html";
+}
+else{
+window.location.href = "standard.html";
+}
+
+}
+
+</script>
+
 
 </body>
 </html>
