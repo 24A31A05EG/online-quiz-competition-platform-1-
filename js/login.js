@@ -2,10 +2,7 @@ window.onload = function () {
 
     const form = document.getElementById("loginForm");
 
-    if (!form) {
-        console.log("Form not found");
-        return;
-    }
+    if (!form) return;
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -31,6 +28,7 @@ window.onload = function () {
             return;
         }
 
+        // Save logged in user
         if (remember) {
             localStorage.setItem("loggedInUser", JSON.stringify(validUser));
         } else {
@@ -39,12 +37,12 @@ window.onload = function () {
 
         showPopup("Login Successful!", "success");
 
+        // ALWAYS GO TO DASHBOARD
         setTimeout(() => {
-            window.location.href = "dashboard.html";
-        }, 1500);
+            window.location.replace("dashboard.html");
+        }, 1000);
     });
 };
-
 
 function showPopup(message, type) {
     const popup = document.getElementById("popup-message");
