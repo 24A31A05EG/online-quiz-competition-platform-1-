@@ -1,75 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Register - QuizNova</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register - QuizNova</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
 
-<!-- ✅ Popup Added -->
 <div id="popup-message" class="popup"></div>
 
 <nav class="navbar">
-    <h2 class="logo">QuizNova</h2>
+    <div class="logo">
+        <i class="fas fa-brain"></i> QuizNova
+    </div>
     <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
+        <a href="about.html">About</a>
         <a href="login.html">Login</a>
-        <a href="register.html" class="register-btn">Register</a>
+        <a href="register.html" class="register-btn active">Register</a>
     </div>
 </nav>
 
-<div class="background-box">
-    <div class="auth-container">
-        <div class="auth-card">
-            <div class="auth-header">
-                <h2>Join QuizNova</h2>
-                <p>Start your learning journey today</p>
-            </div>
+<section class="auth-wrapper">
 
-            <!-- ✅ Form ID Added -->
-            <form id="registerForm">
+    <div class="auth-card">
 
-                <label>Username</label>
-                <!-- ✅ ID Added -->
-                <input type="text" id="username" placeholder="Choose a username" required>
+        <h2>Create Account</h2>
+        <p class="auth-subtitle">Start your learning journey today</p>
 
-                <label>Email Address</label>
-                <!-- ✅ ID Added -->
-                <input type="email" id="email" placeholder="Enter your email" required>
+        <form id="registerForm">
 
-                <label>Password</label>
-                <!-- ✅ ID Added -->
-                <input type="password" id="password" placeholder="Create a password" required>
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Choose a username" required>
 
-                <label>Confirm Password</label>
-                <!-- ✅ ID Added -->
-                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
 
-                <!-- ✅ ID Added -->
-                <label class="terms">
-                    <input type="checkbox" id="terms" required>
-                    I agree to the Terms and Conditions
-                </label>
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Create a password" required>
 
-                <button type="submit" class="auth-btn">Create Account</button>
+            <label>Confirm Password</label>
+            <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
 
-                <p class="switch-text">
-                    Already have an account? <a href="login.html">Sign in here</a>
-                </p>
-            </form>
+            <!-- ✅ FIXED CHECKBOX -->
+            <label class="checkbox-row">
+                <input type="checkbox" id="terms" required>
+                <span>I agree to the Terms and Conditions</span>
+            </label>
 
-        </div>
+            <button type="submit" class="auth-btn">Create Account</button>
+
+            <p class="switch-text">
+                Already have an account?
+                <a href="login.html">Sign in here</a>
+            </p>
+
+        </form>
+
     </div>
-</div>
+
+</section>
 
 <footer class="footer">
-    <div class="footer-left">
-        <h3>QuizNova</h3>
-        <p>Challenge yourself with exciting quizzes and track your performance in real time.</p>
-    </div>
+    <h3>QuizNova</h3>
+    <p>Challenge yourself with exciting quizzes and track your performance in real time.</p>
 </footer>
 
 <script src="js/register.js"></script>
+
 </body>
 </html>
