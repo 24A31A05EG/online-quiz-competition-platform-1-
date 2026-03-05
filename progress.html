@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QuizNova Progress</title>
+
+<link rel="stylesheet" href="progress.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="title">📊 Your Quiz Progress</h1>
+
+<div class="grid">
+
+<!-- SCORE CARD -->
+
+<div class="card">
+
+<h2>Total Score</h2>
+
+<div class="progress-wrapper">
+
+<div class="progress-bar" id="scoreBar"></div>
+
+</div>
+
+<p class="score-text">
+Score: <span id="scoreValue">0</span>
+</p>
+
+</div>
+
+
+<!-- STREAK CARD -->
+
+<div class="card streak">
+
+<h2>🔥 Daily Streak</h2>
+
+<div class="streak-number" id="streakValue">
+0
+</div>
+
+<p class="streak-text">Days Active</p>
+
+</div>
+
+</div>
+
+
+<!-- ACHIEVEMENTS -->
+
+<div class="card">
+
+<h2>🏆 Achievements</h2>
+
+<div class="badges" id="badges"></div>
+
+</div>
+
+
+<!-- QUIZ HISTORY -->
+
+<div class="card">
+
+<h2>📜 Quiz History</h2>
+
+<ul id="history"></ul>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+<button onclick="window.location.href='leaderboard.html'" class="back">
+⬅ Back to Leaderboard
+</button>
+
+</div>
+
+</div>
+
+<script src="progress.js"></script>
+
+</body>
+</html>
