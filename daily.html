@@ -1,0 +1,307 @@
+dialy.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Daily Challenge - QuizNova</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+}
+
+.topbar {
+    background: linear-gradient(90deg, #2563eb, #4f46e5);
+    color: white;
+    padding: 15px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-btn {
+    background: #ff9800;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.card {
+    background: white;
+    width: 650px;
+    padding: 45px;
+    border-radius: 18px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.streak {
+    font-weight: 600;
+    color: #4f46e5;
+    margin-bottom: 20px;
+}
+
+.question {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #374151;
+}
+
+.option-btn {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.option-btn:hover {
+    background: #eef2ff;
+    border-color: #4f46e5;
+}
+
+.correct {
+    background: #10b981 !important;
+    color: white;
+    border: none;
+}
+
+.wrong {
+    background: #ef4444 !important;
+    color: white;
+    border: none;
+}
+
+.message-box {
+    background: #ecfdf5;
+    color: #065f46;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.result {
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 30px;
+    text-decoration: none;
+    color: #4f46e5;
+    font-weight: 600;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="topbar">
+    <div>QuizNova</div>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+</nav>
+
+<div class="wrapper">
+<div class="card">
+
+    <div class="streak" id="streakText"></div>
+
+    <h2>🔥 Daily Challenge</h2>
+
+    <div id="contentArea">
+        <div class="question" id="question"></div>
+        <div id="options"></div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+
+</div>
+</div>
+
+<script>
+
+/* ===== LOGIN CHECK ===== */
+
+let loggedUser =
+    JSON.parse(localStorage.getItem("loggedInUser")) ||
+    JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+if (!loggedUser) {
+    window.location.href = "login.html";
+}
+
+/* ===== LOAD USERS ===== */
+
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+let userIndex = users.findIndex(u => u.email === loggedUser.email);
+
+if (userIndex === -1) {
+    window.location.href = "login.html";
+}
+
+users[userIndex].streak = users[userIndex].streak || 0;
+users[userIndex].score = users[userIndex].score || 0;
+users[userIndex].lastAttemptDate = users[userIndex].lastAttemptDate || "";
+
+/* ===== DATE HELPERS ===== */
+
+function getToday() {
+    let d = new Date();
+    return d.getFullYear() + "-" +
+           String(d.getMonth()+1).padStart(2,'0') + "-" +
+           String(d.getDate()).padStart(2,'0');
+}
+
+function getYesterday() {
+    let d = new Date();
+    d.setDate(d.getDate() - 1);
+    return d.getFullYear() + "-" +
+           String(d.getMonth()+1).padStart(2,'0') + "-" +
+           String(d.getDate()).padStart(2,'0');
+}
+
+let today = getToday();
+let yesterday = getYesterday();
+
+/* Reset streak if skipped day */
+if (
+    users[userIndex].lastAttemptDate &&
+    users[userIndex].lastAttemptDate !== today &&
+    users[userIndex].lastAttemptDate !== yesterday
+) {
+    users[userIndex].streak = 0;
+}
+
+/* Show streak */
+document.getElementById("streakText").innerText =
+    "🔥 Current Streak: " + users[userIndex].streak + " day(s)";
+
+/* If already attempted today */
+if (users[userIndex].lastAttemptDate === today) {
+
+    document.getElementById("contentArea").innerHTML = `
+        <div class="message-box">
+            ✅ Today’s challenge is completed! <br><br>
+            Come back tomorrow to continue your streak 🔥
+        </div>
+    `;
+
+} else {
+
+/* ===== QUESTIONS ===== */
+
+const questions = [
+    {
+        question: "Which language is used for styling web pages?",
+        options: ["HTML", "CSS", "Python", "Java"],
+        answer: "CSS"
+    },
+    {
+        question: "Which company created JavaScript?",
+        options: ["Google", "Netscape", "Microsoft", "IBM"],
+        answer: "Netscape"
+    },
+    {
+        question: "What does HTML stand for?",
+        options: [
+            "Hyper Text Markup Language",
+            "High Text Machine Language",
+            "Hyperlinks Text Mark Language",
+            "Home Tool Markup Language"
+        ],
+        answer: "Hyper Text Markup Language"
+    }
+];
+
+let questionIndex = new Date().getDate() % questions.length;
+let todayQuestion = questions[questionIndex];
+
+document.getElementById("question").innerText = todayQuestion.question;
+
+let optionsDiv = document.getElementById("options");
+let resultDiv = document.getElementById("result");
+
+todayQuestion.options.forEach(option => {
+
+    let btn = document.createElement("button");
+    btn.className = "option-btn";
+    btn.innerText = option;
+
+    btn.onclick = function () {
+
+        /* Update streak */
+        if (users[userIndex].lastAttemptDate === yesterday) {
+            users[userIndex].streak++;
+        } else {
+            users[userIndex].streak = 1;
+        }
+
+        users[userIndex].lastAttemptDate = today;
+
+        if (option === todayQuestion.answer) {
+
+            users[userIndex].score += 5;
+            btn.classList.add("correct");
+
+            resultDiv.innerHTML =
+                "✅ Correct! +5 points";
+
+        } else {
+
+            btn.classList.add("wrong");
+
+            document.querySelectorAll(".option-btn").forEach(b => {
+                if (b.innerText === todayQuestion.answer) {
+                    b.classList.add("correct");
+                }
+            });
+
+            resultDiv.innerHTML =
+                "❌ Wrong Answer <br> Correct Answer: <strong>" +
+                todayQuestion.answer + "</strong>";
+        }
+
+        localStorage.setItem("users", JSON.stringify(users));
+
+        document.getElementById("streakText").innerText =
+            "🔥 Current Streak: " + users[userIndex].streak + " day(s)";
+
+        document.querySelectorAll(".option-btn")
+            .forEach(b => b.disabled = true);
+    };
+
+    optionsDiv.appendChild(btn);
+});
+
+}
+
+/* LOGOUT */
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    sessionStorage.removeItem("loggedInUser");
+    window.location.href = "login.html";
+}
+
+</script>
+
+</body>
+</html>

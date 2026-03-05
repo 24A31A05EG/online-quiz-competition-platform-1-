@@ -1,3 +1,5 @@
+dashboard.html 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,92 +13,55 @@
     <button onclick="logout()" class="logout-btn">Logout</button>
 </nav>
 
-<div class="wrapper">
+<div class="dashboard-container">
 
-    <div class="main-card">
-
+    <!-- HEADER -->
+    <div class="dashboard-header">
         <div class="icon-circle">🧠</div>
+        <h1 id="welcomeText"></h1>
+        <p>Sharpen your skills and maintain your daily streak.</p>
+    </div>
 
-        <h1>Welcome to QuizNova</h1>
-        <p class="subtitle">
-            Test your knowledge with interactive quizzes and compete on the leaderboard.
-        </p>
-
-        <!-- QUIZ + LEADERBOARD ROW -->
-        <div class="grid-two">
-
-            <!-- Quiz Options -->
-            <div class="box">
-                <h3>Quiz Options</h3>
-
-                <!-- SAME OLD STYLE -->
-                <div class="quiz-option blue" onclick="goTo('standard.html')">
-                    Standard Quiz
-                    <span>›</span>
-                </div>
-
-                <div class="quiz-option green" onclick="goTo('custom.html')">
-                    Custom Quiz
-                    <span>›</span>
-                </div>
-
-                <div class="quiz-option purple" onclick="goTo('daily.html')">
-                    Daily Question
-                    <span>›</span>
-                </div>
-
-            </div>
-
-            <!-- Leaderboard -->
-            <div class="box">
-                <h3>Leaderboard</h3>
-
-                <div class="leader-row">Kavya <span>15 pts</span></div>
-                <div class="leader-row">Rahul <span>12 pts</span></div>
-                <div class="leader-row">Sneha <span>9 pts</span></div>
-                <div class="leader-row">Arjun <span>6 pts</span></div>
-                <div class="leader-row">Priya <span>4 pts</span></div>
-
-                <div style="text-align:right; margin-top:10px;">
-                    <a href="#" onclick="goTo('leaderboard.html')" 
-                       style="color:#4e73df; font-size:14px;">
-                       View Full Leaderboard →
-                    </a>
-                </div>
-
-            </div>
-
+    <!-- STATS -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>⭐ Total Score</h3>
+            <p id="userScore"></p>
         </div>
 
-        <!-- BOTTOM FEATURES (OLD STYLE SAME) -->
-        <div class="grid-three">
+        <div class="stat-card">
+            <h3>🔥 Daily Streak</h3>
+            <p id="userStreak"></p>
+        </div>
+    </div>
 
-            <div class="feature">
-                <div class="feature-icon blue-bg">📚</div>
-                <h4>Diverse Questions</h4>
-                <p>Practice from multiple categories.</p>
+    <!-- MAIN GRID -->
+    <div class="main-grid">
+
+        <!-- QUIZ OPTIONS -->
+        <div class="card">
+            <h2>Quiz Options</h2>
+
+            <div class="quiz-btn blue" onclick="goTo('standard.html')">
+                Standard Quiz
             </div>
 
-            <div class="feature">
-                <div class="feature-icon green-bg">📈</div>
-                <h4>Track Progress</h4>
-                <p>Monitor your performance easily.</p>
+            <div class="quiz-btn green" onclick="goTo('custom.html')">
+                Custom Quiz
             </div>
 
-            <div class="feature">
-                <div class="feature-icon purple-bg">🤖</div>
-                <h4>AI Recommendations</h4>
-                <p>Get smart quiz suggestions.</p>
+            <div class="quiz-btn purple" onclick="goTo('daily.html')">
+                Daily Challenge
             </div>
-
         </div>
 
-        <!-- CTA SAME STYLE -->
-        <div class="cta">
-            <h3>Ready to Test Your Knowledge?</h3>
-            <button class="cta-btn" onclick="goTo('standard.html')">
-                Start Quiz Now
-            </button>
+        <!-- LEADERBOARD -->
+        <div class="card">
+            <h2>Leaderboard</h2>
+            <div id="leaderboardList"></div>
+            <a href="leaderboard.html" class="view-link">
+                View Full Leaderboard →
+            </a>
         </div>
 
     </div>
@@ -104,32 +69,59 @@
 </div>
 
 <script>
-let user = localStorage.getItem("loggedInUser") || 
-           sessionStorage.getItem("loggedInUser");
+
+/* LOGIN CHECK */
+let user = JSON.parse(localStorage.getItem("loggedInUser")) ||
+           JSON.parse(sessionStorage.getItem("loggedInUser"));
 
 if (!user) {
-    window.location.href = "login.html";
+    window.location.replace("login.html");
 }
 
+let users = JSON.parse(localStorage.getItem("users")) || [];
+const index = users.findIndex(u => u.email === user.email);
+
+/* WELCOME */
+document.getElementById("welcomeText").innerText =
+    "Welcome back, " + users[index].username + " 👋";
+
+/* STATS */
+document.getElementById("userScore").innerText =
+    users[index].score || 0;
+
+document.getElementById("userStreak").innerText =
+    users[index].streak || 0;
+
+/* LEADERBOARD */
+let sortedUsers = [...users].sort((a,b) =>
+    (b.score || 0) - (a.score || 0)
+);
+
+let html = "";
+
+sortedUsers.slice(0,5).forEach((u, i) => {
+    html += `
+        <div class="leader-row">
+            <span>#${i+1} ${u.username}</span>
+            <span>${u.score || 0} pts</span>
+        </div>
+    `;
+});
+
+document.getElementById("leaderboardList").innerHTML = html;
+
+/* FUNCTIONS */
 function logout() {
     localStorage.removeItem("loggedInUser");
     sessionStorage.removeItem("loggedInUser");
-    window.location.href = "login.html";
+    window.location.replace("login.html");
 }
 
 function goTo(page){
     window.location.href = page;
 }
+
 </script>
-<footer class="footer">
-    <div class="footer-left">
-        <h3>QuizNova</h3>
-        <p>
-            Challenge yourself with exciting quizzes and track 
-            your performance in real time.
-        </p>
-    </div>
-</footer>
 
 </body>
 </html>
