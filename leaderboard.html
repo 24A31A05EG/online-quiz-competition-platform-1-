@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuizNova Leaderboard</title>
+<link rel="stylesheet" href="leaderboard.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<div class="trophy">🏆</div>
+<h1>QuizNova Leaderboard</h1>
+<p>See where you stand among the top players</p>
+</div>
+
+<div class="leaderboard">
+
+<div class="board-header">
+<span>Top Performers</span>
+<span>Global Rankings</span>
+</div>
+
+<div id="leaderboard-list"></div>
+
+</div>
+
+<div class="stats">
+
+<div class="card">
+<div class="icon">👥</div>
+<h3>Total Players</h3>
+<h2 id="totalPlayers">0</h2>
+</div>
+
+<div class="card">
+<div class="icon green">👑</div>
+<h3>Top Score</h3>
+<h2 id="topScore">0</h2>
+</div>
+
+<div class="card">
+<div class="icon purple">🏆</div>
+<h3>Your Rank</h3>
+<h2 id="yourRank">#0</h2>
+</div>
+
+</div>
+
+<div class="buttons">
+<button class="quiz" onclick="takeQuiz()">
+▶ Take a Quiz
+</button>
+<button class="progress" onclick="window.location.href='progress.html'">
+📈 View Progress
+</button>
+<button class="home" onclick="window.location.href='dashboard.html'">
+🏠 Back to Home
+</button>
+</div>
+
+</div>
+
+<script src="leaderboard.js"></script>
+
+<script>
+
+function takeQuiz(){
+
+let lastQuiz = localStorage.getItem("lastQuiz");
+
+if(lastQuiz === "custom"){
+window.location.href = "custom.html";
+}
+else{
+window.location.href = "standard.html";
+}
+
+}
+
+</script>
+
+</body>
+</html>
