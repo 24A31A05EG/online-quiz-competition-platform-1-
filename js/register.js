@@ -2,10 +2,7 @@ window.onload = function () {
 
     const form = document.getElementById("registerForm");
 
-    if (!form) {
-        console.log("Register form not found");
-        return;
-    }
+    if (!form) return;
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -50,20 +47,33 @@ window.onload = function () {
             return;
         }
 
-        const newUser = { username, email, password };
+        /* Create new user with default values */
+        const newUser = {
+            username,
+            email,
+            password,
+            score: 0,
+            streak: 0,
+            lastAttemptDate: ""
+        };
 
         users.push(newUser);
         localStorage.setItem("users", JSON.stringify(users));
 
-        showPopup("Registration Successful!", "success");
+        /* 🔥 AUTO LOGIN FIX */
+        localStorage.setItem("loggedInUser", JSON.stringify(newUser));
+
+        showPopup("Registration Successful! Redirecting...", "success");
 
         setTimeout(() => {
-            window.location.href = "login.html";
-        }, 1500);
+            window.location.replace("dashboard.html");
+        }, 1200);
+
     });
 };
 
 
+/* Popup Function */
 function showPopup(message, type) {
     const popup = document.getElementById("popup-message");
     popup.textContent = message;
