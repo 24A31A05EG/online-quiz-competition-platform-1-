@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>QuizNova Results</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/result.css">
+
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="bg-blue-600 text-white sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 flex justify-between items-center py-3">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-brain text-amber-300 text-2xl"></i>
+            <span class="text-xl font-bold">QuizNova</span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="dashboard.html" class="hover:text-gray-200 flex items-center space-x-1"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="about.html" class="hover:text-gray-200 flex items-center space-x-1"><i class="fas fa-info-circle"></i><span>About</span></a>
+            <a href="login.html" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded-md">Logout</a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- RESULT CARD -->
+
+<div class="result-container">
+
+<!-- HEADER -->
+
+<div class="result-header">
+
+<div class="trophy-circle">
+
+<i class="fa-solid fa-trophy"></i>
+
+</div>
+
+<h2>Quiz Results</h2>
+
+<p>Your performance summary</p>
+
+</div>
+
+
+<!-- BODY -->
+
+<div class="result-body">
+
+
+<!-- SCORE CIRCLE -->
+
+<div class="progress-wrapper">
+
+<svg width="120" height="120">
+
+<circle
+cx="60"
+cy="60"
+r="50"
+stroke="#e5e7eb"
+stroke-width="10"
+fill="none"
+/>
+
+<circle
+id="progressBar"
+cx="60"
+cy="60"
+r="50"
+stroke="#2563eb"
+stroke-width="10"
+fill="none"
+stroke-dasharray="314"
+stroke-dashoffset="314"
+stroke-linecap="round"
+/>
+
+</svg>
+
+<div class="progress-text">
+
+<span id="scorePercent">0%</span>
+
+<p>Score</p>
+
+</div>
+
+</div>
+
+
+
+<!-- RECTANGLES -->
+
+<div class="result-stats">
+
+<div class="stat-box correct">
+
+<div class="icon correct-icon">
+
+<i class="fa-solid fa-check"></i>
+
+</div>
+
+<p>Correct</p>
+
+<h3 id="correctCount">0</h3>
+
+</div>
+
+
+<div class="stat-box total">
+
+<div class="icon total-icon">
+
+<i class="fa-solid fa-bars"></i>
+
+</div>
+
+<p>Total Questions</p>
+
+<h3 id="totalQuestions">0</h3>
+
+</div>
+
+</div>
+
+
+
+<!-- TIME -->
+
+<div class="time-line">
+
+<i class="fa-regular fa-clock"></i>
+
+Time Taken: <span id="timeTaken"></span>
+
+</div>
+
+
+
+<!-- BUTTONS -->
+
+<div class="result-buttons">
+
+<button onclick="goDashboard()">
+Back to Dashboard
+</button>
+
+<button onclick="goLeaderboard()">
+View Leaderboard
+</button>
+
+</div>
+
+
+</div>
+</div>
+
+<script src="js/result.js"></script>
+
+</body>
+</html>

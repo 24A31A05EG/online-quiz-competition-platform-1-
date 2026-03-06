@@ -1,0 +1,274 @@
+body{
+font-family:Arial;
+margin:0;
+background:#f5f7fb;
+}
+
+
+/* NAVBAR */
+/* Sticky Top Bar */
+.navbar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    z-index: 100;
+}
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.navbar-left .brand {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+.navbar-right a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+.logout-btn {
+    background: #b91c1c;
+    padding: 5px 12px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+/* RESULT CARD */
+
+.result-container{
+
+width:700px;
+
+margin:40px auto;
+
+background:white;
+
+border-radius:12px;
+
+overflow:hidden;
+
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+
+}
+
+
+/* HEADER */
+
+.result-header{
+
+background:#2563eb;
+
+color:white;
+
+text-align:center;
+
+padding:35px;
+
+}
+.result-header h2{
+font-size:32px;
+font-weight:bold;
+margin:10px 0 5px 0;
+}
+
+.trophy-circle{
+
+width:65px;
+height:65px;
+
+border-radius:50%;
+
+background:#60a5fa;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:28px;
+
+color:white;
+
+margin:auto;
+margin-bottom:10px;
+
+}
+
+
+/* BODY */
+
+.result-body{
+
+padding:35px;
+
+text-align:center;
+
+}
+
+
+/* PROGRESS */
+
+.progress-wrapper{
+
+position:relative;
+
+width:120px;
+height:120px;
+
+margin:auto;
+
+}
+
+.progress-wrapper svg{
+transform:rotate(-90deg);
+}
+
+.progress-text{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+}
+
+.progress-text span{
+
+font-size:22px;
+
+font-weight:bold;
+
+color:#2563eb;
+
+}
+
+.progress-text p{
+
+margin:0;
+
+font-size:14px;
+
+}
+
+
+/* RECTANGLES */
+
+.result-stats{
+
+display:flex;
+
+gap:20px;
+
+margin-top:30px;
+
+}
+
+.stat-box{
+
+flex:1;
+
+background:#cfddf2;
+
+border-radius:10px;
+
+padding:18px;
+
+}
+
+.icon{
+
+width:35px;
+height:35px;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+margin:auto;
+margin-bottom:8px;
+
+color:white;
+
+}
+
+/* GREEN CORRECT ICON */
+
+.correct-icon{
+
+background:#22c55e;
+
+}
+
+/* BLUE TOTAL ICON */
+
+.total-icon{
+
+background:#2563eb;
+
+}
+
+
+/* TIME LINE */
+
+.time-line{
+
+margin-top:25px;
+
+padding:12px;
+
+background:#cfddf2;
+
+border-radius:8px;
+
+}
+
+
+/* BUTTONS */
+
+.result-buttons{
+
+margin-top:25px;
+
+display:flex;
+
+gap:15px;
+
+}
+
+.result-buttons button{
+
+flex:1;
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+padding:12px;
+
+border-radius:6px;
+
+cursor:pointer;
+
+font-size:14px;
+
+}
+
+.result-buttons button:hover{
+
+background:#1e40af;
+
+}

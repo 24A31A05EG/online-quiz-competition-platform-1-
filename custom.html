@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuizNova - Custom Quiz</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/custom.css"> <!-- Your CSS file -->
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen flex flex-col">
+
+<!-- Sticky Navbar -->
+<nav class="bg-blue-600 text-white sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 flex justify-between items-center py-3">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-brain text-amber-300 text-2xl"></i>
+            <span class="text-xl font-bold">QuizNova</span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="dashboard.html" class="hover:text-gray-200 flex items-center space-x-1"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="about.html" class="hover:text-gray-200 flex items-center space-x-1"><i class="fas fa-info-circle"></i><span>About</span></a>
+            <a href="login.html" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded-md">Logout</a>
+        </div>
+    </div>
+</nav>
+
+<main class="flex-grow container mx-auto px-4 py-8">
+    <div class="max-w-3xl mx-auto space-y-8">
+
+        <!-- Header -->
+        <div class="text-center mb-10">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-600 rounded-2xl mx-auto mb-4">
+                <i class="fas fa-cogs text-white text-4xl"></i>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Create Custom Quiz</h1>
+            <p class="text-gray-600 dark:text-gray-300">Tailor your quiz experience with personalized settings</p>
+        </div>
+
+        <!-- Quiz Form -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+
+            <!-- Quiz Configuration Header -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
+                <div class="flex items-center">
+                    <i class="fas fa-sliders-h text-white text-xl mr-3"></i>
+                    <h2 class="text-white font-semibold text-lg">Quiz Configuration</h2>
+                </div>
+            </div>
+
+            <div class="p-6 md:p-8">
+                <form id="customQuizForm" class="space-y-8">
+                    
+                    <!-- Categories Section -->
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-tags text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Select Categories</h2>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Choose one or more categories for your quiz</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
+                            <label class="flex items-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 cursor-pointer hover:shadow-md transition-shadow duration-200">
+                                <input type="checkbox" name="categories" value="GK" class="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500">
+                                <span class="ml-3 text-gray-900 dark:text-white font-medium">General Knowledge</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 cursor-pointer hover:shadow-md transition-shadow duration-200">
+                                <input type="checkbox" name="categories" value="CA" class="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500">
+                                <span class="ml-3 text-gray-900 dark:text-white font-medium">Current Affairs</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 cursor-pointer hover:shadow-md transition-shadow duration-200">
+                                <input type="checkbox" name="categories" value="AP" class="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500">
+                                <span class="ml-3 text-gray-900 dark:text-white font-medium">Aptitude</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 cursor-pointer hover:shadow-md transition-shadow duration-200">
+                                <input type="checkbox" name="categories" value="RS" class="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500">
+                                <span class="ml-3 text-gray-900 dark:text-white font-medium">Reasoning</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 cursor-pointer hover:shadow-md transition-shadow duration-200">
+                                <input type="checkbox" name="categories" value="PR" class="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500">
+                                <span class="ml-3 text-gray-900 dark:text-white font-medium">Programming</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 cursor-pointer hover:shadow-md transition-shadow duration-200">
+                                <input type="checkbox" name="categories" value="CB" class="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500">
+                                <span class="ml-3 text-gray-900 dark:text-white font-medium">Computer Basics</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Difficulty Section -->
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-signal text-green-600 dark:text-green-400"></i>
+                            </div>
+                            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Difficulty Level</h2>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Choose the difficulty level for your questions</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+                            <label class="relative">
+                                <input type="radio" name="difficulty" value="all" checked class="peer sr-only">
+                                <div class="p-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl cursor-pointer text-center transition-all duration-200 peer-checked:border-blue-500 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-900/20 peer-checked:shadow-md hover:shadow-md">
+                                    <i class="fas fa-globe text-blue-500 text-xl mb-2"></i>
+                                    <span class="font-medium text-gray-900 dark:text-white">All</span>
+                                </div>
+                            </label>
+                            <label class="relative">
+                                <input type="radio" name="difficulty" value="easy" class="peer sr-only">
+                                <div class="p-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl cursor-pointer text-center transition-all duration-200 peer-checked:border-blue-500 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-900/20 peer-checked:shadow-md hover:shadow-md">
+                                    <i class="fas fa-seedling text-green-500 text-xl mb-2"></i>
+                                    <span class="font-medium text-gray-900 dark:text-white">Easy</span>
+                                </div>
+                            </label>
+                            <label class="relative">
+                                <input type="radio" name="difficulty" value="medium" class="peer sr-only">
+                                <div class="p-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl cursor-pointer text-center transition-all duration-200 peer-checked:border-blue-500 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-900/20 peer-checked:shadow-md hover:shadow-md">
+                                    <i class="fas fa-mountain text-yellow-500 text-xl mb-2"></i>
+                                    <span class="font-medium text-gray-900 dark:text-white">Medium</span>
+                                </div>
+                            </label>
+                            <label class="relative">
+                                <input type="radio" name="difficulty" value="hard" class="peer sr-only">
+                                <div class="p-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl cursor-pointer text-center transition-all duration-200 peer-checked:border-blue-500 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-900/20 peer-checked:shadow-md hover:shadow-md">
+                                    <i class="fas fa-fire text-red-500 text-xl mb-2"></i>
+                                    <span class="font-medium text-gray-900 dark:text-white">Hard</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex justify-end pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <button type="submit" class="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                            <i class="fas fa-play-circle mr-2"></i>
+                            Start Custom Quiz
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="mt-8 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl p-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-lightbulb text-amber-500 dark:text-amber-400 text-2xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h3 class="font-semibold text-amber-800 dark:text-amber-300 mb-2">Pro Tips</h3>
+                    <ul class="text-amber-700 dark:text-amber-400 text-sm space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-2 text-amber-500"></i>Mix categories for a well-rounded quiz</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-2 text-amber-500"></i>Start with medium difficulty if unsure</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-2 text-amber-500"></i>Choose multiple categories for more variety</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-12 mt-12">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <div class="flex items-center space-x-2 mb-4">
+                    <i class="fas fa-brain text-amber-300 text-2xl"></i>
+                    <span class="text-xl font-bold">QuizNova</span>
+                </div>
+                <p class="text-gray-300 mb-4">
+                    Test your knowledge with our quizzes.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="dashboard.html" class="text-gray-300 hover:text-amber-300">Home</a></li>
+                    <li><a href="about.html" class="text-gray-300 hover:text-amber-300">About</a></li>
+                    <li><a href="login.html" class="text-gray-300 hover:text-amber-300">Logout</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Quiz Categories</h3>
+                <ul class="space-y-2">
+                    <li><a href="custom_quiz.html?categories=general" class="text-gray-300 hover:text-amber-300">General Knowledge</a></li>
+                    <li><a href="custom_quiz.html?categories=current" class="text-gray-300 hover:text-amber-300">Current Affairs</a></li>
+                    <li><a href="custom_quiz.html?categories=aptitude" class="text-gray-300 hover:text-amber-300">Aptitude</a></li>
+                    <li><a href="custom_quiz.html?categories=reasoning" class="text-gray-300 hover:text-amber-300">Reasoning</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2026 QuizNova. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="js/custom.js"></script>
+</body>
+</html>
+

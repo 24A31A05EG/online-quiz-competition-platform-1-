@@ -1,0 +1,145 @@
+/* Reset and basic */
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+/* Sticky Top Bar */
+.navbar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    z-index: 100;
+}
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.navbar-left .brand {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+.navbar-right a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+.logout-btn {
+    background: #b91c1c;
+    padding: 5px 12px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Main Container */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.header p {
+    color: #4b5563;
+}
+
+/* Quiz Form Sections */
+.section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.section h2 {
+    margin-bottom: 10px;
+}
+
+/* Category & Difficulty Options */
+.category-options label,
+.difficulty-options label {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    margin: 5px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.category-options input,
+.difficulty-options input {
+    margin-right: 8px;
+}
+.difficulty-options i {
+    margin-right: 5px;
+}
+.category-options label:hover,
+.difficulty-options label:hover {
+    background: #e0f2fe;
+}
+
+/* Start Button */
+.start-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.start-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Tips Section */
+.tips {
+    background: #fef3c7;
+    padding: 15px;
+    border-radius: 10px;
+}
+.tips h2 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background: #1f2937;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+footer .footer-content {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+footer a {
+    color: #9ca3af;
+    margin: 0 8px;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #fcd34d;
+}
+

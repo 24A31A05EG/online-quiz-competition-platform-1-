@@ -1,0 +1,124 @@
+{
+  "standard_quiz": [
+    {
+      "id": "Q1",
+      "question": "Which memory loses its data when power is switched off?",
+      "options": ["ROM", "Hard Disk", "RAM", "Flash Memory"],
+      "answer": "RAM"
+    },
+    {
+      "id": "Q2",
+      "question": "Which software acts as a bridge between the user and computer hardware?",
+      "options": ["Compiler", "Operating System", "Application Software", "Utility Software"],
+      "answer": "Operating System"
+    },
+    {
+      "id": "Q3",
+      "question": "Which unit of the CPU performs arithmetic operations?",
+      "options": ["Control Unit", "ALU", "Register", "Cache"],
+      "answer": "ALU"
+    },
+    {
+      "id": "Q4",
+      "question": "Which concept helps in reusing existing code?",
+      "options": ["Encapsulation", "Abstraction", "Inheritance", "Compilation"],
+      "answer": "Inheritance"
+    },
+    {
+      "id": "Q5",
+      "question": "Which data structure follows the LIFO principle?",
+      "options": ["Queue", "Stack", "Array", "Tree"],
+      "answer": "Stack"
+    },
+    {
+      "id": "Q6",
+      "question": "Which approach stores the results of subproblems to solve complex problems efficiently?",
+      "options": ["Greedy", "Divide and Conquer", "Backtracking", "Dynamic Programming"],
+      "answer": "Dynamic Programming"
+    },
+    {
+      "id": "Q7",
+      "question": "Find the next number in the series: 2, 6, 18, 54, ?",
+      "options": ["108", "162", "216", "270"],
+      "answer": "162"
+    },
+    {
+      "id": "Q8",
+      "question": "If CAT is written as DBU, how is DOG written?",
+      "options": ["EPH", "EOH", "EPG", "DOH"],
+      "answer": "EPH"
+    },
+    {
+      "id": "Q9",
+      "question": "Which one does not belong to the group?",
+      "options": ["Circle", "Square", "Triangle", "Cube"],
+      "answer": "Cube"
+    },
+    {
+      "id": "Q10",
+      "question": "If the selling price is Rs. 800 and the cost price is Rs. 640, what is the profit percentage?",
+      "options": ["20%", "22%", "25%", "30%"],
+      "answer": "25%"
+    },
+    {
+      "id": "Q11",
+      "question": "A train covers 120 km in 3 hours. What is its speed?",
+      "options": ["30 km/hr", "35 km/hr", "40 km/hr", "45 km/hr"],
+      "answer": "40 km/hr"
+    },
+    {
+      "id": "Q12",
+      "question": "The average of 10 numbers is 15. What is their sum?",
+      "options": ["120", "130", "140", "150"],
+      "answer": "150"
+    },
+    {
+      "id": "Q13",
+      "question": "Who is the current Prime Minister of India?",
+      "options": ["Rahul Gandhi", "Narendra Modi", "Amit Shah", "Arvind Kejriwal"],
+      "answer": "Narendra Modi"
+    },
+    {
+      "id": "Q14",
+      "question": "Which country hosted the 2024 Summer Olympics?",
+      "options": ["Japan", "USA", "France", "China"],
+      "answer": "France"
+    },
+    {
+      "id": "Q15",
+      "question": "Which Indian space mission achieved a successful soft landing near the Moon’s south pole?",
+      "options": ["Chandrayaan-1", "Chandrayaan-2", "Chandrayaan-3", "Mangalyaan"],
+      "answer": "Chandrayaan-3"
+    },
+    {
+      "id": "Q16",
+      "question": "Which scheduling method gives the minimum average waiting time?",
+      "options": ["FCFS", "Round Robin", "Priority Scheduling", "Shortest Job First"],
+      "answer": "Shortest Job First"
+    },
+    {
+      "id": "Q17",
+      "question": "Which device is used to block unauthorized network access?",
+      "options": ["Hub", "Switch", "Router", "Firewall"],
+      "answer": "Firewall"
+    },
+    {
+      "id": "Q18",
+      "question": "Find the missing number: 5, 11, 23, 47, ?",
+      "options": ["93", "94", "95", "96"],
+      "answer": "95"
+    },
+    {
+      "id": "Q19",
+      "question": "Which property ensures that committed data is never lost?",
+      "options": ["Atomicity", "Consistency", "Isolation", "Durability"],
+      "answer": "Durability"
+    },
+    {
+      "id": "Q20",
+      "question": "Which type of computer is used for complex scientific calculations like weather forecasting?",
+      "options": ["Microcomputer", "Minicomputer", "Mainframe", "Supercomputer"],
+      "answer": "Supercomputer"
+    }
+  ]
+}
