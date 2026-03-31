@@ -107,10 +107,25 @@ Run it using either method:
 - Develop a dedicated mobile application (Android/iOS) for QuizNova.
 - Add multi-language support to reach a wider, global audience.
 
-## 11. Author
-- **Name:** Majji Kavya
-- **Role:** Frontend
-- **LinkedIn URL:** [https://www.linkedin.com/in/kavya-majji-a47a0832a/](https://www.linkedin.com/in/kavya-majji-a47a0832a/)
+## 11. Authors
+
+### 👑 Team Lead
+| Field | Details |
+|---|---|
+| **Name** | Majji Kavya |
+| **Role** | Team Lead – Core Logic, Quiz Engine & Full Project Integration |
+| **Responsibilities** | Project architecture & folder setup, Quiz logic (quiz.js) — dynamic question loading, score tracking, option handling & result redirection, Full HTML + CSS + JS integration, Navigation flow & linking, Final verification of all modules, Bug fixing & end-to-end testing |
+| **LinkedIn URL** | [https://www.linkedin.com/in/kavya-majji-a47a0832a/](https://www.linkedin.com/in/kavya-majji-a47a0832a/) |
+
+---
+
+### 👥 Team Members
+
+| Name | Role | Responsibilities |
+|---|---|---|
+| **Renuka** | HTML Developer – Structure Creator | Built all HTML pages: `index.html`, `login.html`, `quiz.html`, `result.html`, `leaderboard.html`; added question containers, option buttons, timer section, score display, and navigation links |
+| **Shyam** | CSS Designer – UI & Animations | Styled the entire platform (`style.css`) — card layout, color theme, responsive design, hover effects, smooth transitions, and timer warning color change |
+| **Reetya** | Data & Logic Developer | Created quiz questions bank (`questions.js`) with 20+ questions across categories; implemented login flow (`auth.js`) using localStorage; built leaderboard logic (`leaderboard.js`) with score sorting and top-5 display |
 
 ---
 > This project is built for educational and demonstration purposes. QuizNova – *Challenge yourself, track your progress, and grow every day.*
